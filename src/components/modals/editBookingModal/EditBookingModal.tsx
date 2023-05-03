@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { Alert, Box, Button, Modal, SelectChangeEvent, TextField, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CloseIcon from '@mui/icons-material/Close';
 import { isBefore } from "date-fns";
 
 import { roomsData } from "../../../redux/reducers/roomsSlice";
@@ -28,7 +29,7 @@ interface EditModalProps {
 
 const {
   modal, box, typography, backdrop, datePickerWrapper, buttonWrapper, textField,
-  buttonContainer, deleteButton, alert
+  buttonContainer, deleteButton, alert, closeModal
 } = styles;
 
 const EditBookingModal: FC<EditModalProps> = ({
@@ -140,6 +141,7 @@ const EditBookingModal: FC<EditModalProps> = ({
         slotProps={{ backdrop: { className: backdrop } }}
       >
         <Box className={box} sx={boxPosition}>
+          <Button className={closeModal} onClick={() => setOpenEditBookingModal(false)}><CloseIcon /></Button>
           {isPastBooking && (
             <Alert severity="error" className={alert}>
               The default selected time below is already in the past. Feel free to modify that and save your booking!
