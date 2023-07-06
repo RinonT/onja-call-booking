@@ -1,6 +1,6 @@
 import axios from "axios";
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:4000";
-const API_URL = '/api/backend-proxy';
+const API_URL = '../api/backend-proxy';
 
 export const sendQuery = (query: any): Promise<any> => {
   return axios.post(API_URL, {
