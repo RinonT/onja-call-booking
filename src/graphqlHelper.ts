@@ -1,8 +1,9 @@
 import axios from "axios";
 const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:4000";
+const API_URL = '/api/backend-proxy';
 
 export const sendQuery = (query: any): Promise<any> => {
-  return axios.post(`http://3.11.136.62:4000/graphql?`, {
+  return axios.post(API_URL, {
     query,
   });
 };
